@@ -1,0 +1,14 @@
+services:
+  forgeplan:
+    build: .
+    ports:
+      - "127.0.0.1:8787:8787"
+    environment:
+      FORGEPLAN_BIND: 0.0.0.0
+      FORGEPLAN_PUBLIC_ORIGIN: http://127.0.0.1:8787
+      FORGEPLAN_IDENTITIES: ${FORGEPLAN_IDENTITIES:?Set a JSON token/identity map first}
+    volumes:
+      - forgeplan-data:/data
+    restart: unless-stopped
+volumes:
+  forgeplan-data:

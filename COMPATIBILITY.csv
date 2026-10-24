@@ -1,0 +1,55 @@
+﻿ID,Area,Feature,Status,Phase,Limitations_or_acceptance
+CORE-01,Tasks,Плоские задачи и вехи,implemented,P0,working-minute tasks/milestones; fixed-offset event policy
+CORE-02,Tasks,Иерархия WBS и summary tasks,implemented,P1,explicit summaries; 64 levels; no links to summaries
+CORE-03,Scheduling,Связи FS SS FF SF,implemented,P2,FS SS FF SF compare actual endpoints through calendar gaps
+CORE-04,Scheduling,Лаг и опережение,implemented,P2,signed working-minute lags; no elapsed lag
+CORE-05,Scheduling,Критические задачи и total float,implemented,P0,threshold zero; no free float
+CORE-06,Scheduling,Free float и driving path,partial,P2,driving links/reasons implemented; free float not implemented
+CORE-07,Calendar,Пятидневка и праздники,implemented,P2,weekly intervals holidays date overrides
+CORE-08,Calendar,Минутные смены и исключения,partial,P2,minute shifts breaks exceptions split overnight; no IANA DST
+CORE-09,Calendar,Ресурсные и задачные календари,partial,P4,personal capacity calendars; assignment/task calendar scheduling not implemented
+CORE-10,Scheduling,Ручное планирование,planned,P2,explicit manual field semantics
+CORE-11,Scheduling,Планирование от окончания,planned,P2,ALAP and finish anchor
+CORE-12,Scheduling,Ограничения и дедлайны,implemented,P2,six date constraints; soft deadline does not change float
+CORE-13,Scheduling,Split и elapsed durations,planned,P2,separate time model
+CORE-14,Scheduling,Inactive tasks,planned,P2,exclude from calculated network
+RES-01,Resources,Рабочие generic material cost,partial,P4,person/generic work resources; material/cost not implemented
+RES-02,Resources,Fixed duration/work/units,partial,P4,basic fixed duration/work/units and effort-driven; not MS differential verified
+RES-03,Resources,Профили назначений и overtime,planned,P4,time-phased work
+RES-04,Resources,Перегрузки ресурсов,implemented,P4,minute sweep overloads with date capacity; detail limits explicit
+RES-05,Resources,Автоматическое выравнивание,partial,P7,bounded greedy preview/apply/undo; no splits global optimality or project pool
+TRACK-01,Tracking,Базовые планы,implemented,P4,named snapshots of calendar dates work cost; immutable name in editor
+TRACK-02,Tracking,Факт и remaining work,partial,P4,actual percent/work/cost/dates; no remaining-work rescheduler or approved-fact protection
+TRACK-03,Tracking,Дата отчёта и перепланирование,partial,P4,status date and baseline PV; no automatic remaining-work replanning
+COST-01,Cost,Ставки и бюджеты,partial,P4,single hourly rates and fixed costs; no currencies/effective-date rate tables
+COST-02,Cost,Начисление и time-phased cost,planned,P4,start prorated end
+COST-03,Cost,Earned value EVM,partial,P8,BAC PV EV AC CPI SPI alpha model; no MS differential validation
+UI-01,Views,Редактируемая таблица задач,partial,P3,WBS editor and commands; no virtualization
+UI-02,Views,Диаграмма Ганта,partial,P3,summary bars; no arrows drag or zoom
+UI-03,Views,Resource/task usage,partial,P4,resource daily and overload report; full task usage view pending
+UI-04,Views,Календарь и network diagram,planned,P3,alternative views
+UI-05,Views,Фильтры группировки столбцы,planned,P3,saved views
+UI-06,Views,Undo redo и shortcuts,partial,P3,Rust undo/redo implemented; full shortcut coverage pending
+UI-07,Views,Печать и PDF,planned,P8,pagination and scale
+EXT-01,Custom,Custom fields и formulas,planned,P8,sandbox expression engine
+EXT-02,Custom,Шаблоны и индикаторы,planned,P8,org governed
+ENT-01,Enterprise,Корпоративные проекты и роли,partial,P5,durable projects and org roles; no PostgreSQL or project ACL
+ENT-02,Enterprise,Общий пул ресурсов,planned,P7,capacity across projects
+ENT-03,Enterprise,Портфели и программы,partial,P8,multi-project overview; no programs/portfolio optimization
+ENT-04,Enterprise,Межпроектные зависимости,planned,P7,snapshot/version consistency
+ENT-05,Enterprise,Табели и согласование,partial,P7,submitted/independent approval adds actuals; no staff binding/full workflow
+ENT-06,Enterprise,Draft publish revisions,partial,P5,draft editor and durable publication snapshots; no full lifecycle workflow
+ENT-07,Enterprise,Совместное редактирование,partial,P5,CAS/idempotent commands/manual refresh; no live merge/presence/WebSocket
+ENT-08,Enterprise,OIDC SSO,partial,P5,OIDC RS256/JWKS roles and browser PKCE tested with mock; real tenant/BFF/refresh pending
+ENT-09,Enterprise,Audit и backup restore,partial,P5,SQLite audit and tested online backup/reopen; no PostgreSQL restore drill
+CLIENT-01,Clients,Веб-клиент,partial,P3,local prototype; full parity target
+CLIENT-02,Clients,Desktop Windows Linux macOS,partial,P6,native window/local-corporate modes; owned token-protected local process; Linux X11 E2E; macOS/Windows/ARM64 pending; unsigned
+CLIENT-03,Clients,Offline и синхронизация,partial,P6,whole-file offline pull/push conflict protection; no outbox/merge/keychain
+CLIENT-04,Clients,WASM engine,planned,P6,no wasm build verified yet
+IO-01,Exchange,Открытый формат .fplan,implemented,P1,JSON schema 1 with TSV v1-v4 migration and strict deserialization
+IO-02,Exchange,Microsoft Project XML,partial,P8,XML subset with loss warnings; Project application acceptance not tested
+IO-03,Exchange,MPP import/export,research,P9,not promised; adapter/license spike
+IO-04,Exchange,Excel CSV import/export,partial,P8,quoted task CSV only; no native XLSX mapping
+IO-05,Exchange,REST OpenAPI webhooks,partial,P5,workspace REST and OpenAPI; webhooks not implemented
+IO-06,Exchange,Jira GitLab HR ERP,planned,P8,after stable API
+COMP-01,Compatibility,VBA macros / binary-identical behavior,out_of_scope,none,separate product decision

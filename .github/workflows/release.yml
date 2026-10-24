@@ -1,0 +1,7 @@
+name: Build release candidates (unsigned)
+on: [workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  candidates:
+    uses: ./.github/workflows/ci.yml

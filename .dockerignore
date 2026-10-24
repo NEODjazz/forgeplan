@@ -1,0 +1,7 @@
+target
+.git
+*.sqlite*
+*.zip
+dist
+node_modules
+__pycache__

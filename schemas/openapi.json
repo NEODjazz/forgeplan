@@ -1,0 +1,1097 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ForgePlan workspace API",
+    "version": "0.9.0-alpha",
+    "description": "SQLite workspace. Organization-scoped RBAC; Bearer static API token or verified OIDC JWT. Read detailed operation semantics in docs/API.md and WORKSPACE.md."
+  },
+  "paths": {
+    "/api/projects": {
+      "get": {
+        "summary": "GET /api/projects",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "POST /api/projects",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Origin",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/portfolio": {
+      "get": {
+        "summary": "GET /api/portfolio",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/state": {
+      "get": {
+        "summary": "GET /api/state",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/project": {
+      "get": {
+        "summary": "GET /api/project",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/commands": {
+      "post": {
+        "summary": "POST /api/commands",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Origin",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Command-ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "base_revision",
+                  "commands"
+                ],
+                "properties": {
+                  "base_revision": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "commands": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 10000,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "data"
+                      ],
+                      "properties": {
+                        "type": {
+                          "enum": [
+                            "add",
+                            "update",
+                            "move",
+                            "delete_subtree",
+                            "set_predecessors",
+                            "project_settings",
+                            "calendar_settings",
+                            "dates",
+                            "add_resource",
+                            "update_resource",
+                            "delete_resource",
+                            "set_assignments",
+                            "policy",
+                            "work",
+                            "personal_calendar",
+                            "rate",
+                            "fixed_cost",
+                            "actual",
+                            "baseline",
+                            "status_date",
+                            "replace"
+                          ]
+                        },
+                        "data": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/audit": {
+      "get": {
+        "summary": "GET /api/audit",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/publish": {
+      "post": {
+        "summary": "POST /api/publish",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Origin",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/published": {
+      "get": {
+        "summary": "GET /api/published",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/leveling/preview": {
+      "post": {
+        "summary": "POST /api/leveling/preview",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Origin",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/leveling/apply": {
+      "post": {
+        "summary": "POST /api/leveling/apply",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Origin",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Command-ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/export.xml": {
+      "get": {
+        "summary": "GET /api/export.xml",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/export.csv": {
+      "get": {
+        "summary": "GET /api/export.csv",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/import.xml": {
+      "post": {
+        "summary": "POST /api/import.xml",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Origin",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/import.csv": {
+      "post": {
+        "summary": "POST /api/import.csv",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Origin",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/timesheets": {
+      "get": {
+        "summary": "GET /api/timesheets",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "POST /api/timesheets",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Origin",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/timesheets/approve": {
+      "post": {
+        "summary": "POST /api/timesheets/approve",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Origin",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/config": {
+      "get": {
+        "summary": "GET /api/auth/config",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Organization",
+            "schema": {
+              "type": "string",
+              "default": "local"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Project-ID",
+            "schema": {
+              "type": "string",
+              "default": "demo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "401": {
+            "description": "Missing/invalid authentication"
+          },
+          "403": {
+            "description": "Role or organization denied"
+          },
+          "409": {
+            "description": "Revision/idempotency conflict"
+          },
+          "422": {
+            "description": "Domain validation failure"
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Static API token or RS256 OIDC access token"
+      }
+    }
+  }
+}

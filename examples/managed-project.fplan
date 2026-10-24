@@ -1,0 +1,361 @@
+{
+  "format": "forgeplan",
+  "schema_version": 1,
+  "project": {
+    "title": "Модернизация инфраструктуры",
+    "calendar": {
+      "start": "2026-10-26",
+      "start_minute": 540,
+      "utc_offset": 180,
+      "weekly": [
+        [
+          {
+            "start": 540,
+            "end": 1020
+          }
+        ],
+        [
+          {
+            "start": 540,
+            "end": 1020
+          }
+        ],
+        [
+          {
+            "start": 540,
+            "end": 1020
+          }
+        ],
+        [
+          {
+            "start": 540,
+            "end": 1020
+          }
+        ],
+        [
+          {
+            "start": 540,
+            "end": 1020
+          }
+        ],
+        [],
+        []
+      ],
+      "holidays": [
+        "2026-11-04"
+      ],
+      "exceptions": {}
+    },
+    "tasks": [
+      {
+        "id": 10,
+        "title": "Подготовка платформы",
+        "duration": 0,
+        "parent": null,
+        "order": 0,
+        "kind": "summary",
+        "constraint": null,
+        "deadline": null
+      },
+      {
+        "id": 1,
+        "title": "Обследование инфраструктуры",
+        "duration": 1440,
+        "parent": 10,
+        "order": 0,
+        "kind": "task",
+        "constraint": null,
+        "deadline": null
+      },
+      {
+        "id": 2,
+        "title": "Проектирование платформы",
+        "duration": 2400,
+        "parent": 10,
+        "order": 1,
+        "kind": "task",
+        "constraint": null,
+        "deadline": null
+      },
+      {
+        "id": 3,
+        "title": "Подготовка сети",
+        "duration": 1440,
+        "parent": 10,
+        "order": 2,
+        "kind": "task",
+        "constraint": null,
+        "deadline": null
+      },
+      {
+        "id": 20,
+        "title": "Внедрение и запуск",
+        "duration": 0,
+        "parent": null,
+        "order": 1,
+        "kind": "summary",
+        "constraint": null,
+        "deadline": null
+      },
+      {
+        "id": 4,
+        "title": "Развёртывание платформы",
+        "duration": 1920,
+        "parent": 20,
+        "order": 0,
+        "kind": "task",
+        "constraint": null,
+        "deadline": null
+      },
+      {
+        "id": 5,
+        "title": "Приёмочные испытания",
+        "duration": 960,
+        "parent": 20,
+        "order": 1,
+        "kind": "task",
+        "constraint": null,
+        "deadline": null
+      },
+      {
+        "id": 6,
+        "title": "Ввод в эксплуатацию",
+        "duration": 0,
+        "parent": 20,
+        "order": 2,
+        "kind": "task",
+        "constraint": null,
+        "deadline": null
+      }
+    ],
+    "links": [
+      {
+        "from": 1,
+        "to": 2,
+        "relation": "FS",
+        "lag": 0
+      },
+      {
+        "from": 1,
+        "to": 3,
+        "relation": "FS",
+        "lag": 0
+      },
+      {
+        "from": 2,
+        "to": 4,
+        "relation": "FS",
+        "lag": 0
+      },
+      {
+        "from": 3,
+        "to": 4,
+        "relation": "FS",
+        "lag": 0
+      },
+      {
+        "from": 4,
+        "to": 5,
+        "relation": "FS",
+        "lag": 0
+      },
+      {
+        "from": 5,
+        "to": 6,
+        "relation": "FS",
+        "lag": 0
+      }
+    ],
+    "resources": [
+      {
+        "id": 1,
+        "name": "Инженер платформы",
+        "kind": "person",
+        "capacity": 10000,
+        "availability": [
+          {
+            "from": "2026-10-30",
+            "through": "2026-10-30",
+            "capacity": 5000
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Сетевой инженер",
+        "kind": "person",
+        "capacity": 10000,
+        "availability": []
+      },
+      {
+        "id": 3,
+        "name": "Команда DevOps",
+        "kind": "generic",
+        "capacity": 20000,
+        "availability": []
+      }
+    ],
+    "assignments": [
+      {
+        "task": 1,
+        "resource": 1,
+        "units": 10000
+      },
+      {
+        "task": 2,
+        "resource": 1,
+        "units": 10000
+      },
+      {
+        "task": 3,
+        "resource": 1,
+        "units": 10000
+      },
+      {
+        "task": 3,
+        "resource": 2,
+        "units": 10000
+      },
+      {
+        "task": 4,
+        "resource": 3,
+        "units": 20000
+      },
+      {
+        "task": 5,
+        "resource": 1,
+        "units": 5000
+      },
+      {
+        "task": 5,
+        "resource": 2,
+        "units": 5000
+      }
+    ],
+    "management": {
+      "policies": {},
+      "resource_calendars": {},
+      "hourly_rates_cents": {
+        "1": 6000
+      },
+      "fixed_costs_cents": {
+        "1": 50000
+      },
+      "actuals": {
+        "1": {
+          "percent_complete": 50,
+          "work_basis": 1200000,
+          "cost_cents": 35000,
+          "start": null,
+          "finish": null
+        }
+      },
+      "baselines": [
+        {
+          "name": "Approved demo",
+          "calendar": {
+            "start": "2026-10-26",
+            "start_minute": 540,
+            "utc_offset": 180,
+            "weekly": [
+              [
+                {
+                  "start": 540,
+                  "end": 1020
+                }
+              ],
+              [
+                {
+                  "start": 540,
+                  "end": 1020
+                }
+              ],
+              [
+                {
+                  "start": 540,
+                  "end": 1020
+                }
+              ],
+              [
+                {
+                  "start": 540,
+                  "end": 1020
+                }
+              ],
+              [
+                {
+                  "start": 540,
+                  "end": 1020
+                }
+              ],
+              [],
+              []
+            ],
+            "holidays": [
+              "2026-11-04"
+            ],
+            "exceptions": {}
+          },
+          "tasks": [
+            {
+              "id": 1,
+              "start": "2026-10-26T09:00",
+              "finish": "2026-10-28T17:00",
+              "es": 0,
+              "ef": 1440,
+              "work_basis": 14400000,
+              "cost_cents": 194000
+            },
+            {
+              "id": 2,
+              "start": "2026-10-29T09:00",
+              "finish": "2026-11-05T17:00",
+              "es": 1440,
+              "ef": 3840,
+              "work_basis": 24000000,
+              "cost_cents": 240000
+            },
+            {
+              "id": 3,
+              "start": "2026-10-29T09:00",
+              "finish": "2026-11-02T17:00",
+              "es": 1440,
+              "ef": 2880,
+              "work_basis": 28800000,
+              "cost_cents": 144000
+            },
+            {
+              "id": 4,
+              "start": "2026-11-06T09:00",
+              "finish": "2026-11-11T17:00",
+              "es": 3840,
+              "ef": 5760,
+              "work_basis": 38400000,
+              "cost_cents": 0
+            },
+            {
+              "id": 5,
+              "start": "2026-11-12T09:00",
+              "finish": "2026-11-13T17:00",
+              "es": 5760,
+              "ef": 6720,
+              "work_basis": 9600000,
+              "cost_cents": 48000
+            },
+            {
+              "id": 6,
+              "start": "2026-11-16T09:00",
+              "finish": "2026-11-16T09:00",
+              "es": 6720,
+              "ef": 6720,
+              "work_basis": 0,
+              "cost_cents": 0
+            }
+          ]
+        }
+      ],
+      "active_baseline": "Approved demo",
+      "status_date": "2026-10-27T09:00"
+    }
+  }
+}

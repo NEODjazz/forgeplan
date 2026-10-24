@@ -1,0 +1,22 @@
+[package]
+name = "forgeplan"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[features]
+default = []
+native-client = ["dep:wry", "dep:tao", "dep:getrandom"]
+
+[dependencies]
+plan-core = { path = "../plan-core" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.37", features = ["bundled", "backup"] }
+sha2 = "0.10"
+jsonwebtoken = "9.3"
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+
+wry = { version = "=0.57.1", optional = true }
+tao = { version = "=0.37.2", optional = true }
+getrandom = { version = "0.2.17", optional = true }

@@ -1,0 +1,9 @@
+/target/
+*.tmp
+
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.sync.json
+/dist/
+/node_modules/
